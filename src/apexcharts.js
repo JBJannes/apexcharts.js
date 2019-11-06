@@ -33,7 +33,6 @@ import 'svg.draggable.js'
 import 'svg.select.js'
 import 'svg.resize.js'
 
-import './assets/apexcharts.css'
 import './utils/ClassListPolyfill'
 import './utils/DetectElementResize'
 

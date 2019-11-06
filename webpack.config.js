@@ -1,7 +1,9 @@
 var path = require('path')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   entry: [path.resolve(__dirname, 'src/apexcharts.js')],
+  plugins: [new ExtractTextPlugin('src/assets/apexcharts.css')],
   output: {
     library: 'ApexCharts',
     libraryTarget: 'amd',
@@ -44,7 +46,10 @@ module.exports = {
 
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
       },
       {
         test: /\.svg$/,
