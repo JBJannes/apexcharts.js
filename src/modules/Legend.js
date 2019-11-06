@@ -38,11 +38,6 @@ class Legend {
       this.drawLegends()
       if (!Utils.isIE11()) {
         this.appendToForeignObject()
-      } else {
-        // IE11 doesn't supports foreignObject, hence append it to <head>
-        document
-          .getElementsByTagName('head')[0]
-          .appendChild(this.getLegendStyles())
       }
 
       if (cnf.legend.position === 'bottom' || cnf.legend.position === 'top') {
@@ -70,7 +65,6 @@ class Legend {
     gl.dom.elLegendWrap.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml')
 
     elForeign.appendChild(gl.dom.elLegendWrap)
-    elForeign.appendChild(this.getLegendStyles())
 
     gl.dom.Paper.node.insertBefore(elForeign, gl.dom.elGraphical.node)
   }
